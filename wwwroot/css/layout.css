@@ -291,8 +291,13 @@ text-align: center;
 }
 .submit-btn{
     background: orange;
-    padding: 3px 10px;
-    border-radius: 10px;
+    padding: 5px 20px;
+    border-radius: 19px;
+    border: 1px solid #bbb0b0;
+    margin: 10px;
+    font-size: 20px;
+    color: white;
+    font-weight: bold;
 }
 
 

@@ -13,8 +13,10 @@ namespace WebApplication.Controllers
         {
             return View();
         }
-
         public IActionResult SubmitStateForm(){
+            return View();
+        }
+        public IActionResult SubmitStateForm2(){
             return View();
         }
 

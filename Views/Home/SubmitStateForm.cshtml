@@ -1,147 +1,199 @@
-<link rel="stylesheet" href="~/css/css.css">
+<html dir="rtl">
 
-<script src="~/lib/angular/angular.js"></script>
-<script src="~/lib/jquery/dist/jquery.js"></script>
-<script src="~/js/app.js"></script>
+<body>
+    <link rel="stylesheet" type="text/css" href="../css/layout.css">
+    <div id="container">
+        <div id="header">
+            <div id="header-accounts">
+                header accounts
+            </div>
 
-<div id="container" ng-app="RJProject" ng-controller="SubmitCtrl">
+            <div id="header-content">
+                <div id="contacting">
+                    <div id="cell-number" class="cotact-number">
+                        <p>09118733895</p>
+                    </div>
+                    <div class="cotact-number">
+                        <p>01735452873</p>
+                    </div>
+                </div>
+                <div id="navigation">
+                    <ul>
+                        <li><a href="#">خانه</a></li>
+                        <li><a href="#">جستجو</a></li>
+                        <li><a href="#">اخبار</a></li>
+                        <li><a href="#">تماس باما</a></li>
+                    </ul>
+                </div>
 
-	<header>
-	</header>
-	<div id="header">
-		HEADER
-	</div>
-	<content>
-		<div id="content">
-			<div id="state-type-selection">
-				<h3>انتخاب کنید:</h3>
-				<div id="state-type">
-					<div class="state-type" ng-repeat="state in stateTypes">
-						{{state.Name}}
-					</div>
-				</div>
-			</div>
-			<div style="clear:both"></div>
-			<div id="form">
-				<div id="inputs">
-					<h3>انتخاب کنید:</h3>
-					<div id="ad-types">
-						<div class="ad-type" ng-style="ad === selectedAd?{ 'background' :'rgba(255, 87, 34, 0.56)'}:{}" ng-click="selectAd(ad)" ng-repeat="ad in adTypes">
-							{{ad.Name}}
-						</div>
-					</div>
+                <div id="logo">logo</div>
+            </div>
+        </div>
+        <!--header-->
 
-					<div class="input-row">
-						<label>عنوان: </label>
-						<input type="text" ng-model="model.Name" name="">
-					</div>
-					<div class="input-row" id="area">
-						<label>متراژ: </label>
-						<input type="text" class="number-input" ng-model="model.Area" name="">
-					</div>
+        <div id="content">
+            <div id="content-header">
+                <h1>ثبت ملک</h1>
+            </div>
 
-					<div class="input-row">
-						<label>رهن: </label>
-						<input type="text" class="number-input" ng-model="model.Mortgage" name="">
-					</div>
-					<div class="input-row">
-						<label>اجاره: </label>
-						<input type="text" class="number-input" ng-model="model.Rent" name="">
-					</div>
+            <div id="submit-form" ng-app="RJProject" ng-controller="submit">
+                <div class="select">
+                    <h3>انتخاب کنید:</h3>
+                    <div>
+                        <button class="btn" type="button" ng-click="selectStateType(st)" ng-style="st== selectedStateType?{'background':'orange'}:{}"
+                            ng-repeat="st in stateTypes">{{st.Name}}</button>
+                    </div>
+                </div>
+                <div class="select">
+                    <h3>انتخاب کنید:</h3>
+                    <div>
+                        <button class="btn" type="button" ng-click="selectAdType(ad)" ng-style="ad== selectedAdType?{'background':'orange'}:{}" ng-repeat="ad in adTypes">{{ad.Name}}</button>
+                    </div>
+                </div>
+                <div id="form-main">
+                    <div id="form-main-right">
+                        <div class="text-block">
+                            <label>عنوان:</label>
+                            <input class="txt big-txt" type="text" />
+                        </div>
+                        <div class="text-block">
+                            <label>متراژ:</label>
+                            <input class="txt small-txt" type="text" />
+                        </div>
+                        <div class="text-block">
+                            <label>رهن:</label>
+                            <input class="txt small-txt" type="text" />
+                        </div>
+                        <div class="text-block">
+                            <label>اجاره:</label>
+                            <input class="txt small-txt" type="text" />
+                        </div>
+                        <div class="text-block">
+                            <label>تعداد خواب:</label>
+                            <div class="select">
+                                <button class="btn circle-btn" type="button" ng-click="selectRoomCount(c)" ng-style="c == selectedRoomCount?{'background':'orange'}:{}"
+                                    ng-repeat="c in count">{{c}}</button>
+                            </div>
+                        </div>
+                        <div class="text-block">
+                            <label>تعداد حمام:</label>
+                            <div class="select">
+                                <button class="btn circle-btn" type="button" ng-click="selectBathroomCount(c)" ng-style="c == selectedBathroomCount?{'background':'orange'}:{}"
+                                    ng-repeat="c in count">{{c}}</button>
+                            </div>
+                        </div>
 
-					<div class="input-row">
-						<label>تعداد اتاق: </label>
-						<div class="countes">
-							<div class="count" ng-style="c === selectedRoomCount?{ 'background' :'rgba(255, 87, 34, 0.56)'}:{}" ng-click="selectRoomCount(c)"
-								ng-repeat='c in countes'>
-								{{c}}
-							</div>
-						</div>
-					</div>
+                    </div>
 
-					<div class="input-row">
-						<label>تعداد پارکینگ: </label>
-						<div class="countes">
-							<div class="count" ng-style="c === selectedParkingCount?{ 'background' :'rgba(255, 87, 34, 0.56)'}:{}" ng-click="selectParkingCount(c)"
-								ng-repeat='c in countes'>
-								{{c}}
-							</div>
-						</div>
-					</div>
-
-					<div class="input-row">
-						<label>امکانات: </label>
-						<input type="text" ng-model="model.Rent" name="">
-					</div>
-
-					<div class="input-row">
-						<label>شماره تماس: </label>
-						<input type="text" ng-model="model.CallNumber" name="">
-					</div>
-
-					<div class="input-row">
-						<label>ایمیل: </label>
-						<input type="text" ng-model="model.Mail" name="">
-					</div>
-
-					<div class="input-row">
-						<label>محله: </label>
-						<input type="text" ng-model="model.Region" name="">
-					</div>
-
-					<div class="input-row">
-						<label>آدرس: </label>
-						<textarea ng-model="model.Address"></textarea>
-					</div>
-				</div>
-				<!--end inputs-->
-
-				<div id="slider-container">
-					<div id="slider-main">
-						<input type="file" id="upload" name="" style="display: none">
-						<div id="slider-show">
-							<img ng-click="showFileDialog($event)" src="{{sliderImages[currentIndex]}}">
-							<div id="slider-show-btn">
-								<div class="slider-show-btn" ng-click="deleteImage(currentIndex)">*</div>
-
-								<div class="slider-show-btn" ng-click="showFileDialog($event)">U</div>
-							</div>
-
-							<div id="slider-next" ng-click="setCurrentImage(currentIndex +1)">
-								<</div>
-
-									<div id="slider-preview" ng-click="setCurrentImage(currentIndex -1)">></div>
-							</div>
-
-							<div id="slider-images">
-
-								<div class="image" ng-click="setCurrentImage($index)" ng-repeat="img in sliderImages">
-
-									<div class="image-btn" ng-click="deleteImage(currentIndex)">*</div>
-									<img src="{{img}}">
-								</div>
-							</div>
-
-						</div>
-					</div>
-					<!--end slider container-->
-
-					<div style="clear: both;"></div>
-
-				</div>
-				<!--end form-->
-				<div style="clear: both;"></div>
-				<div id="submit">
-					<input type="button" ng-click="submitState()" class="btn" value="ثبت" name="">
-				</div>
-
-			</div>
-	</content>
+                    <div id="form-main-left">
+                        <div class="text-block">
+                            <label>شماره تماس:</label>
+                            <input class="txt big-txt" type="text" />
+                        </div>
+                        <div class="text-block">
+                            <label>ایمیل:</label>
+                            <input class="txt big-txt" type="text" />
+                        </div>
+                        <div class="text-block">
+                            <label>محله:</label>
+                            <input class="txt big-txt" type="text" />
+                        </div>
+                        <div class="text-block">
+                            <label>آدرس:</label>
+                            <textarea class="txt big-txt"></textarea>
+                        </div>
 
 
-	<footer>
-		<div id="footer">
-		</div>
-	</footer>
+                    </div>
+                </div>
+                <!--form-main-->
+                <div style="clear:both"></div>
 
-	</div>
+                <div class="select">
+                    <h3>جنس کف:</h3>
+                    <div>
+                        <button class="btn" type="button" ng-click="selectFloorType(fl)" ng-style="fl== selectedFloorType?{'background':'orange'}:{}"
+                            ng-repeat="fl in floorTypes">{{fl.Name}}</button>
+                    </div>
+                </div>
+
+                <div class="select">
+                    <h3>نما:</h3>
+                    <div>
+                        <button class="btn" type="button" ng-click="selectFacingType(fc)" ng-style="fc == selectedFacingType?{'background':'orange'}:{}"
+                            ng-repeat="fc in facingTypes">{{fc.Name}}</button>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <div>
+                        <h3>امکانات</h3>
+                    </div>
+                    <div class="section-content">
+                        <div class="check-block" ng-click="selectFacialite(fa)" ng-repeat="fa in facialities">
+                            <span ng-style="fa.selected?{'background':'orange'}:{}"></span>
+                            <label>{{fa.Name}}</label>
+                        </div>
+
+                    </div>
+                </div>
+                <div style="clear:both"></div>
+                <div id="image-upload" class="section">
+                    <div>
+                        <h3>تصویر ملک</h3>
+                    </div>
+                    <div class="section-content">
+                        <div id="section-right">
+                            <div id="uploader">
+                                <img ng-click="showFileDialog($event)" src="{{images[currentIndex]}}">
+                            </div>
+                            <input type="file" id="upload" name="" style="display: none">
+                        </div>
+                        <div id="section-left">
+                            <div id="images">
+                                <div class="image" ng-repeat="img in images">
+                                    <img src="{{img}}" </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div style="clear:both"></div>
+                        <div id='image-constraints'>
+                            <p>محدودیت های تصویر انتخابی: </p>
+                            <p>- حداکثر ۵ عکس می توانید انتخاب نمایید</p>
+                            <p>- حجم عکس انتخابی باید کمتر از یک مگابایت باشد</p>
+                        </div>
+                    </div>
+                    <div id='descryption' class="section">
+                        <div>
+                            <h3>توضیحات ملک</h3>
+                        </div>
+                        <div class="section-content">
+                            <textarea class="txt"></textarea>
+
+                        </div>
+
+      </div>
+
+                </div>
+
+                <div id="submit-btn">
+                    <button class="submit-btn">ثبت ملک</button>
+
+                </div>
+                <!--submit-from-->
+            </div>
+            <!--CONTENT-->
+            <div id="footer">
+                footer
+            </div>
+
+        </div>
+</body>
+
+<script src="../lib/angular/angular.js"></script>
+<script src="../lib/jquery/dist/jquery.js"></script>
+<script src="../js/submit.js"></script>
+
+</html>

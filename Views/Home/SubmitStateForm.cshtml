@@ -1,0 +1,147 @@
+<link rel="stylesheet" href="~/css/css.css">
+
+<script src="~/lib/angular/angular.js"></script>
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="~/js/app.js"></script>
+
+<div id="container" ng-app="RJProject" ng-controller="SubmitCtrl">
+
+	<header>
+	</header>
+	<div id="header">
+		HEADER
+	</div>
+	<content>
+		<div id="content">
+			<div id="state-type-selection">
+				<h3>انتخاب کنید:</h3>
+				<div id="state-type">
+					<div class="state-type" ng-repeat="state in stateTypes">
+						{{state.Name}}
+					</div>
+				</div>
+			</div>
+			<div style="clear:both"></div>
+			<div id="form">
+				<div id="inputs">
+					<h3>انتخاب کنید:</h3>
+					<div id="ad-types">
+						<div class="ad-type" ng-style="ad === selectedAd?{ 'background' :'rgba(255, 87, 34, 0.56)'}:{}" ng-click="selectAd(ad)" ng-repeat="ad in adTypes">
+							{{ad.Name}}
+						</div>
+					</div>
+
+					<div class="input-row">
+						<label>عنوان: </label>
+						<input type="text" ng-model="model.Name" name="">
+					</div>
+					<div class="input-row" id="area">
+						<label>متراژ: </label>
+						<input type="text" class="number-input" ng-model="model.Area" name="">
+					</div>
+
+					<div class="input-row">
+						<label>رهن: </label>
+						<input type="text" class="number-input" ng-model="model.Mortgage" name="">
+					</div>
+					<div class="input-row">
+						<label>اجاره: </label>
+						<input type="text" class="number-input" ng-model="model.Rent" name="">
+					</div>
+
+					<div class="input-row">
+						<label>تعداد اتاق: </label>
+						<div class="countes">
+							<div class="count" ng-style="c === selectedRoomCount?{ 'background' :'rgba(255, 87, 34, 0.56)'}:{}" ng-click="selectRoomCount(c)"
+								ng-repeat='c in countes'>
+								{{c}}
+							</div>
+						</div>
+					</div>
+
+					<div class="input-row">
+						<label>تعداد پارکینگ: </label>
+						<div class="countes">
+							<div class="count" ng-style="c === selectedParkingCount?{ 'background' :'rgba(255, 87, 34, 0.56)'}:{}" ng-click="selectParkingCount(c)"
+								ng-repeat='c in countes'>
+								{{c}}
+							</div>
+						</div>
+					</div>
+
+					<div class="input-row">
+						<label>امکانات: </label>
+						<input type="text" ng-model="model.Rent" name="">
+					</div>
+
+					<div class="input-row">
+						<label>شماره تماس: </label>
+						<input type="text" ng-model="model.CallNumber" name="">
+					</div>
+
+					<div class="input-row">
+						<label>ایمیل: </label>
+						<input type="text" ng-model="model.Mail" name="">
+					</div>
+
+					<div class="input-row">
+						<label>محله: </label>
+						<input type="text" ng-model="model.Region" name="">
+					</div>
+
+					<div class="input-row">
+						<label>آدرس: </label>
+						<textarea ng-model="model.Address"></textarea>
+					</div>
+				</div>
+				<!--end inputs-->
+
+				<div id="slider-container">
+					<div id="slider-main">
+						<input type="file" id="upload" name="" style="display: none">
+						<div id="slider-show">
+							<img ng-click="showFileDialog($event)" src="{{sliderImages[currentIndex]}}">
+							<div id="slider-show-btn">
+								<div class="slider-show-btn" ng-click="deleteImage(currentIndex)">*</div>
+
+								<div class="slider-show-btn" ng-click="showFileDialog($event)">U</div>
+							</div>
+
+							<div id="slider-next" ng-click="setCurrentImage(currentIndex +1)">
+								<</div>
+
+									<div id="slider-preview" ng-click="setCurrentImage(currentIndex -1)">></div>
+							</div>
+
+							<div id="slider-images">
+
+								<div class="image" ng-click="setCurrentImage($index)" ng-repeat="img in sliderImages">
+
+									<div class="image-btn" ng-click="deleteImage(currentIndex)">*</div>
+									<img src="{{img}}">
+								</div>
+							</div>
+
+						</div>
+					</div>
+					<!--end slider container-->
+
+					<div style="clear: both;"></div>
+
+				</div>
+				<!--end form-->
+				<div style="clear: both;"></div>
+				<div id="submit">
+					<input type="button" ng-click="submitState()" class="btn" value="ثبت" name="">
+				</div>
+
+			</div>
+	</content>
+
+
+	<footer>
+		<div id="footer">
+		</div>
+	</footer>
+
+	</div>

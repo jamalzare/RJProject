@@ -2,9 +2,12 @@
 *{
 	padding:0px;
 	margin:0px;
-	font-family: samim;
+	font-family: byekan;
 }
-
+@font-face {
+    font-family: byekan;
+    src: url(../fonts/BYekan.ttf);
+}
 
 body{
 	color:#8A8A8A;
@@ -14,9 +17,63 @@ body{
 	font-family: tahoma;
 	font-size: 15px;
 	color: #777;
-	font-family: samim;
+	font-family: byekan, Arial, Helvetica, sans-serif;
+}
+/* classes */
+.row{
+ clear: both;   
+}
+.row ::after{
+    clear: both;
+}
+.row .text-block{
+    float: right;
+    margin-left: 150px;
+}
+.row .text-block label{
+    min-width: 10px;
+}
+.txt{
+    border:1px solid #a39d9d;
+    height: 30px;
+    font-size: 17px;
+    text-align: right;
+}
+.text-block{
+    padding: 5px 0px;
+}
+.text-block label{
+    min-width: 100px;
+    float: right;
+}
+.text-block input{
+}
+.circle-btn{
+    margin: 0px 2px;
+    margin-right: 0px;
+    color: gray;
+    font-weight: bold;
+    border-radius: 20px;
+    padding: 0px;
+    padding: 5px 12px;
+    font-size: 18px;
+    font-weight: 100;
+}
+.select .circle-btn{
+    font-weight: normal;
+        margin: 0px 2px;
+}
+.small-txt{
+    width: 70px;
+}
+.big-txt{
+    width: 260px;
 }
 
+.extra-txt{
+    width: 460px;
+}
+/* end classes */
 #container{
     min-width:1200px;
 	margin : 0 auto;
@@ -25,7 +82,7 @@ body{
 }
 
 #header{
-    background: black;
+    background: #242a2b;
     height: 150px;
     
 }
@@ -35,10 +92,13 @@ body{
 }
 #header-content #logo{
     height: 100px;
-    width: 90px;
+    
     float: left;
     padding-left: 30px;
-    border: 1px solid palevioletred;
+    
+}
+#header-content #logo img{
+        height: 95px;
 }
 #contacting{
     float: right;
@@ -49,6 +109,9 @@ body{
 }
 .cotact-number{
     padding-left: 30px;
+    background-size: 25px;
+    background-repeat: no-repeat;
+    background-position: 3px 3px;
 }
 .cotact-number p{
      background: #03A9F4;
@@ -58,6 +121,8 @@ body{
 }
 #cell-number{
     border-bottom: 1px solid rgb(82, 191, 241);
+    background-image: url(../images/mobile.png);
+    
 }
 
 ul{
@@ -139,45 +204,18 @@ a{
 #form-main{
 height: 300px;
 }
-#form-main .text-block{
+.text-block{
     padding: 5px 0px;
 }
-#form-main .text-block label{
+.text-block label{
     min-width: 100px;
     float: right;
 }
-#form-main .text-block input{
+.text-block input{
 }
 
 #form-main .select{
     
-}
-.txt{
-    border:1px solid #a39d9d;
-    height: 30px;
-    font-size: 17px;
-    text-align: right;
-}
-.circle-btn{
-    margin: 0px 2px;
-    margin-right: 0px;
-    color: gray;
-    font-weight: bold;
-    border-radius: 20px;
-    padding: 0px;
-    padding: 5px 12px;
-    font-size: 18px;
-    font-weight: 100;
-}
-.select .circle-btn{
-    font-weight: normal;
-        margin: 0px 2px;
-}
-.small-txt{
-    width: 70px;
-}
-.big-txt{
-    width: 260px;
 }
 
 #form-main textarea{
@@ -221,8 +259,8 @@ height: 300px;
     margin-left: 10px;
 }
 .check-block span{
-    width: 25px;
-    height: 25px;
+    width: 20px;
+    height: 20px;
     border: 1px solid #bcb7b7;
     /* display: inline-block; */
     float: right;
@@ -305,5 +343,5 @@ text-align: center;
 #footer{
     margin-top:10px;
     height: 100px;
-    background: black;
+    background: #242a2b;
 }

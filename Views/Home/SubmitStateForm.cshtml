@@ -26,7 +26,9 @@
                     </ul>
                 </div>
 
-                <div id="logo">logo</div>
+                <div id="logo">
+                    <img src="../images/logo.png" />
+                </div>
             </div>
         </div>
         <!--header-->
@@ -52,30 +54,45 @@
                 </div>
                 <div id="form-main">
                     <div id="form-main-right">
-                        <div class="text-block">
+                        <div ng-if="title" class="text-block">
                             <label>عنوان:</label>
                             <input class="txt big-txt" type="text" />
                         </div>
-                        <div class="text-block">
+                        <div ng-if="area" class="text-block">
                             <label>متراژ:</label>
                             <input class="txt small-txt" type="text" />
                         </div>
-                        <div class="text-block">
+                        <div ng-if="buildingArea" class="text-block">
+                            <label>زیربنا:</label>
+                            <input class="txt small-txt" type="text" />
+                        </div>
+
+                        <div ng-if="meterPrice" class="text-block">
+                            <label>قیمت هر متر:</label>
+                            <input class="txt small-txt" type="text" />
+                        </div>
+
+                        <div ng-if="totalPrice" class="text-block">
+                            <label>قیمت کل :</label>
+                            <input class="txt small-txt" type="text" />
+                        </div>
+
+                        <div ng-if="mortgage" class="text-block">
                             <label>رهن:</label>
                             <input class="txt small-txt" type="text" />
                         </div>
-                        <div class="text-block">
+                        <div ng-if="rent" class="text-block">
                             <label>اجاره:</label>
                             <input class="txt small-txt" type="text" />
                         </div>
-                        <div class="text-block">
+                        <div ng-if="room" class="text-block">
                             <label>تعداد خواب:</label>
                             <div class="select">
                                 <button class="btn circle-btn" type="button" ng-click="selectRoomCount(c)" ng-style="c == selectedRoomCount?{'background':'orange'}:{}"
                                     ng-repeat="c in count">{{c}}</button>
                             </div>
                         </div>
-                        <div class="text-block">
+                        <div ng-if="bathroom" class="text-block">
                             <label>تعداد حمام:</label>
                             <div class="select">
                                 <button class="btn circle-btn" type="button" ng-click="selectBathroomCount(c)" ng-style="c == selectedBathroomCount?{'background':'orange'}:{}"
@@ -108,88 +125,159 @@
                 </div>
                 <!--form-main-->
                 <div style="clear:both"></div>
-
-                <div class="select">
-                    <h3>جنس کف:</h3>
-                    <div>
-                        <button class="btn" type="button" ng-click="selectFloorType(fl)" ng-style="fl== selectedFloorType?{'background':'orange'}:{}"
-                            ng-repeat="fl in floorTypes">{{fl.Name}}</button>
-                    </div>
-                </div>
-
-                <div class="select">
-                    <h3>نما:</h3>
-                    <div>
-                        <button class="btn" type="button" ng-click="selectFacingType(fc)" ng-style="fc == selectedFacingType?{'background':'orange'}:{}"
-                            ng-repeat="fc in facingTypes">{{fc.Name}}</button>
-                    </div>
-                </div>
-
-                <div class="section">
-                    <div>
-                        <h3>امکانات</h3>
-                    </div>
-                    <div class="section-content">
-                        <div class="check-block" ng-click="selectFacialite(fa)" ng-repeat="fa in facialities">
-                            <span ng-style="fa.selected?{'background':'orange'}:{}"></span>
-                            <label>{{fa.Name}}</label>
-                        </div>
-
-                    </div>
-                </div>
-                <div style="clear:both"></div>
-                <div id="image-upload" class="section">
-                    <div>
-                        <h3>تصویر ملک</h3>
-                    </div>
-                    <div class="section-content">
-                        <div id="section-right">
-                            <div id="uploader">
-                                <img ng-click="showFileDialog($event)" src="{{images[currentIndex]}}">
+                <div id="more-Fields">
+                    <div class="row">
+                        <div ng-if="inMall" class="text-block">
+                            <label>داخل پاساژ قرار دارد؟:</label>
+                            <div class="check-block" ng-click="selectInMall(true)">
+                                <span ng-style="isInMall?{'background':'orange'}:{}"></span>
+                                <label>بله</label>
                             </div>
-                            <input type="file" id="upload" name="" style="display: none">
-                        </div>
-                        <div id="section-left">
-                            <div id="images">
-                                <div class="image" ng-repeat="img in images">
-                                    <img src="{{img}}" </div>
-                                </div>
-
+                            <div class="check-block" ng-click="selectInMall(false)">
+                                <span ng-style="!isInMall?{'background':'orange'}:{}"></span>
+                                <label>خیر</label>
                             </div>
                         </div>
+                    </div>
 
-                        <div style="clear:both"></div>
-                        <div id='image-constraints'>
-                            <p>محدودیت های تصویر انتخابی: </p>
-                            <p>- حداکثر ۵ عکس می توانید انتخاب نمایید</p>
-                            <p>- حجم عکس انتخابی باید کمتر از یک مگابایت باشد</p>
+                    <div class="row">
+                        <div ng-if="floorNumber" class="text-block">
+                            <label>طبقه :</label>
+                            <input class="txt small-txt" type="text" />
+                        </div>
+                        <div ng-if="unitCounts" class="text-block">
+                            <label>تعداد کل واحدها :</label>
+                            <input class="txt small-txt" type="text" />
+                        </div>
+
+                        <div ng-if="floorsCount" class="text-block">
+                            <label>تعداد کل طبقات :</label>
+                            <input class="txt small-txt" type="text" />
+                        </div>
+
+                        <div ng-if="buildYear" class="text-block">
+                            <label>سال ساخت:</label>
+                            <input class="txt small-txt" type="text" />
                         </div>
                     </div>
-                    <div id='descryption' class="section">
+                    <div class="row">
+                        <div ng-if="changeAble" class="text-block">
+                            <label>قابلیت معاوضه:</label>
+                            <div class="check-block" ng-click="selectChangeable(true)">
+                                <span ng-style="isChangeable?{'background':'orange'}:{}"></span>
+                                <label>دارد</label>
+                            </div>
+                            <div class="check-block" ng-click="selectChangeable(false)">
+                                <span ng-style="!isChangeable?{'background':'orange'}:{}"></span>
+                                <label>ندارد</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div ng-if="changeWith" class="text-block">
+                            <label>معاوضه با:</label>
+                            <input class="txt extra-txt" type="text" />
+                        </div>
+                        <div class="row">
+                            <div ng-if="logageType" class="text-block">
+                                <label>نوع وام:</label>
+                                <input class="txt small-txt" type="text" />
+                            </div>
+                            <div ng-if="logage" class="text-block">
+                                <label>کل وام:</label>
+                                <input class="txt small-txt" type="text" />
+                            </div>
+                            <div ng-if="payment" class="text-block">
+                                <label>مقدار قسط:</label>
+                                <input class="txt small-txt" type="text" />
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div style="clear:both"></div>
+
+                    <div ng-if="floorType" class="select">
+                        <h3>جنس کف:</h3>
                         <div>
-                            <h3>توضیحات ملک</h3>
+                            <button class="btn" type="button" ng-click="selectFloorType(fl)" ng-style="fl== selectedFloorType?{'background':'orange'}:{}"
+                                ng-repeat="fl in floorTypes">{{fl.Name}}</button>
+                        </div>
+                    </div>
+
+                    <div ng-if="facingType" class="select">
+                        <h3>نما:</h3>
+                        <div>
+                            <button class="btn" type="button" ng-click="selectFacingType(fc)" ng-style="fc == selectedFacingType?{'background':'orange'}:{}"
+                                ng-repeat="fc in facingTypes">{{fc.Name}}</button>
+                        </div>
+                    </div>
+
+                    <div ng-if="facialites" class="section">
+                        <div>
+                            <h3>امکانات</h3>
                         </div>
                         <div class="section-content">
-                            <textarea class="txt"></textarea>
+                            <div class="check-block" ng-click="selectFacialite(fa)" ng-repeat="fa in stateFacialities">
+                                <span ng-style="fa.selected?{'background':'orange'}:{}"></span>
+                                <label>{{fa.Name}}</label>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div style="clear:both"></div>
+                    <div id="image-upload" class="section">
+                        <div>
+                            <h3>تصویر ملک</h3>
+                        </div>
+                        <div class="section-content">
+                            <div id="section-right">
+                                <div id="uploader">
+                                    <img ng-click="showFileDialog($event)" src="{{images[currentIndex]}}">
+                                </div>
+                                <input type="file" id="upload" name="" style="display: none">
+                            </div>
+                            <div id="section-left">
+                                <div id="images">
+                                    <div class="image" ng-repeat="img in images">
+                                        <img src="{{img}}" </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div style="clear:both"></div>
+                            <div id='image-constraints'>
+                                <p>محدودیت های تصویر انتخابی: </p>
+                                <p>- حداکثر ۵ عکس می توانید انتخاب نمایید</p>
+                                <p>- حجم عکس انتخابی باید کمتر از یک مگابایت باشد</p>
+                            </div>
+                        </div>
+                        <div id='descryption' class="section">
+                            <div>
+                                <h3>توضیحات ملک</h3>
+                            </div>
+                            <div class="section-content">
+                                <textarea class="txt"></textarea>
+
+                            </div>
 
                         </div>
 
-      </div>
+                    </div>
 
+                    <div id="submit-btn">
+                        <button class="submit-btn">ثبت ملک</button>
+
+                    </div>
+                    <!--submit-from-->
+                </div>
+                <!--CONTENT-->
+                <div id="footer">
+                    footer
                 </div>
 
-                <div id="submit-btn">
-                    <button class="submit-btn">ثبت ملک</button>
-
-                </div>
-                <!--submit-from-->
             </div>
-            <!--CONTENT-->
-            <div id="footer">
-                footer
-            </div>
-
-        </div>
 </body>
 
 <script src="../lib/angular/angular.js"></script>

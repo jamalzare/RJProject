@@ -16,6 +16,7 @@ app.controller("submit", ['$scope', function (scope) {
             Fields: [0, 1, 2, 3, 7, 9, 13, 19, 11, 12, 14, 15, 20],
             Facialities: [0, 1, 4, 7, 13],
         },
+        
         { ID: 3, Fields: [], Name: 'اداری و دفتر کار' },
         { ID: 4, Fields: [], Name: 'انبار' },
         {

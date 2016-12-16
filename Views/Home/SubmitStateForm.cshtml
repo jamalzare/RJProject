@@ -1,38 +1,7 @@
-<html dir="rtl">
 
-<body>
-    <link rel="stylesheet" type="text/css" href="../css/layout.css">
-    <div id="container">
-        <div id="header">
-            <div id="header-accounts">
-                header accounts
-            </div>
-
-            <div id="header-content">
-                <div id="contacting">
-                    <div id="cell-number" class="cotact-number">
-                        <p>09118733895</p>
-                    </div>
-                    <div class="cotact-number">
-                        <p>01735452873</p>
-                    </div>
-                </div>
-                <div id="navigation">
-                    <ul>
-                        <li><a href="#">خانه</a></li>
-                        <li><a href="#">جستجو</a></li>
-                        <li><a href="#">اخبار</a></li>
-                        <li><a href="#">تماس باما</a></li>
-                    </ul>
-                </div>
-
-                <div id="logo">
-                    <img src="../images/logo.png" />
-                </div>
-            </div>
-        </div>
-        <!--header-->
-
+@{
+    Layout="_Layout";
+}
         <div id="content">
             <div id="content-header">
                 <h1>ثبت ملک</h1>
@@ -197,6 +166,34 @@
 
                     <div style="clear:both"></div>
 
+                    <div ng-if="deliverDate" class="text-block">
+                        <label>تاریخ تحویل:</label>
+                        <input class="txt small-txt" type="text" />
+                    </div>
+                    <div ng-if="documentTransfer" class="text-block">
+                        <label>نحوه ی انتقال سند مالکیت و وکالت فروش:</label>
+                        <input class="txt extra-txt" type="text" />
+                    </div>
+                    <div class="row">
+                        <div ng-if="getingLogage" class="text-block">
+                            <label>امکان گرفتن وام:</label>
+                            <div class="check-block" ng-click="selectGetingLogage(true)">
+                                <span ng-style="isGetingLogage?{'background':'orange'}:{}"></span>
+                                <label>دارد</label>
+                            </div>
+                            <div class="check-block" ng-click="selectGetingLogage(false)">
+                                <span ng-style="!isGetingLogage?{'background':'orange'}:{}"></span>
+                                <label>ندارد</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div ng-if="logagePossible" class="text-block">
+                        <label> امکان گرفتن وام تا:</label>
+                        <input class="txt small-txt" type="text" />
+                        میلیون تومان
+                    </div>
+                    <div style="clear:both"></div>
+
                     <div ng-if="floorType" class="select">
                         <h3>جنس کف:</h3>
                         <div>
@@ -274,15 +271,8 @@
                     <!--submit-from-->
                 </div>
                 <!--CONTENT-->
-                <div id="footer">
-                    footer
-                </div>
+                
 
-            </div>
-</body>
+       
 
-<script src="../lib/angular/angular.js"></script>
-<script src="../lib/jquery/dist/jquery.js"></script>
-<script src="../js/submit.js"></script>
 
-</html>

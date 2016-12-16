@@ -1,2 +1,2 @@
 // Write your Javascript code.
-alert('balmer');
+alert('site.js');

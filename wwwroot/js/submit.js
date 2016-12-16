@@ -16,14 +16,18 @@ app.controller("submit", ['$scope', function (scope) {
             Fields: [0, 1, 2, 3, 7, 9, 13, 19, 11, 12, 14, 15, 20],
             Facialities: [0, 1, 4, 7, 13],
         },
-        
+
         { ID: 3, Fields: [], Name: 'اداری و دفتر کار' },
         { ID: 4, Fields: [], Name: 'انبار' },
         {
             ID: 5, Name: 'زمین مسکونی و تجاری',
-            Fields: [0,1,2,3,7,9,14,15]
+            Fields: [0, 1, 2, 3, 7, 9, 14, 15]
         },
-        { ID: 6, Fields: [], Name: 'سایر' },
+        {
+            ID: 6, Name: 'سایر',
+            Fields: [1, 6, 7, 9, 23, 24, 25],
+            Facialities:[],
+        },
     ];
     var fieldVisiblity = [
         { ID: 0, Name: 'title' },
@@ -49,6 +53,10 @@ app.controller("submit", ['$scope', function (scope) {
         { ID: 20, Name: 'floorType' },
         { ID: 21, Name: 'facingType' },
         { ID: 22, Name: 'facialites' },
+        { ID: 23, Name: 'deliverDate' },
+        { ID: 24, Name: 'documentTransfer' },
+        { ID: 25, Name: 'getingLogage' },
+        { ID: 26, Name: 'logagePossible' },
     ]
 
 
@@ -207,6 +215,9 @@ app.controller("submit", ['$scope', function (scope) {
 
     scope.selectInMall = function (able) {
         scope.isInMall = able;
+    }
+    scope.selectGetingLogage = function (able) {
+        scope.isGetingLogage = able;
     }
 
     var send = function (file) {

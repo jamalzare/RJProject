@@ -29,7 +29,9 @@ namespace WebApplication.Controllers
             var dal = new Dal();
             return Json(dal.GetStates());
         }
-
+        public IActionResult GoToState(){
+            return View();
+        }
         [HttpPost]
         public JsonResult GetState([FromBody] State model){
            var  dal = new Dal();

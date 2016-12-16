@@ -442,3 +442,89 @@ float: right;
     border-left: 0px;
     
 }
+
+/*sate - detail - page
+******************************************/
+#content{
+    background: white;
+    float: right;
+    width: 100%;
+   
+}
+
+#detail-head{padding: 10px;}
+#detail-head-right{
+float: right;
+    width: 80%;
+}
+#detail-head-right h1{
+
+}
+#detail-head-left{
+    float: right;
+}
+#detail-head .text-block{
+
+}
+#detail-head .text-block label{
+
+}
+#detail-images{
+    border-top: 1px solid rgb(183, 183, 183);
+    margin: 20px;
+    /* float: right; */
+}
+#detail-images h5{
+        background: #03a9f4;
+        float: right;
+        padding: 3px;
+        color: white;
+}
+
+#detail-slider-container{}
+
+#detail-slider{
+float: right;
+}
+#detail-slider img{
+    width: 800px;
+    height: 400px;
+    box-shadow: 0px 0px 4px 1px rgba(0, 0, 0, 0.82);
+}
+#detail-slider-images{
+    float: right;
+    padding-right: 100px;
+}
+#detail-slider-images img{
+    width: 200px;
+    height: 120px;
+    box-shadow: 0px 0px 4px 1px rgba(0, 0, 0, 0.82);
+}
+#detail-footer{
+
+}
+#detail-details{float: right;width: 48%;color: black;font-size: 20px;padding: 20px;}
+
+.details-head{}
+.details-head h4{font-size: 30px;border-bottom: 1px solid;/* float: right; */}
+
+#detail-details ul{margin-top: 12px;}
+#detail-details li{border-top: 1px solid #a6a6a6;}
+#detail-details li:nth-child(odd){
+    background: #f6f6f6;
+}
+#detail-details li label{FLOAT: RIGHT;width: 70%;}
+
+#detail-details li span{
+}
+#detail-descryption{float: right;}
+
+#detail-descryption textarea{width: 500px;height: 102px;margin: 10px;}
+
+#detail-facialities{
+
+}
+#detail-facialities ul{
+
+}
+#detail-facialities li{float: right;margin: 5px 2px;background: #03a9f4;padding: 8px 20px;color: white;}

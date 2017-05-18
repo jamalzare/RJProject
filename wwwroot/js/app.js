@@ -3,21 +3,37 @@ var app = angular.module("RJProject", []);
 app.factory('serverInteract', function ($http) {
 	return {
 		request: function (url, data, expr) {
-
+debugger
 			var request = {
 				method: "POST",
 				url: url,
-				headers: {
-					'Content-Type': 'application/json;'
-				},
+				async:   false,
+				// headers: {
+				// 	'Content-Type': 'application/json;'
+				// },
+				contentType: "application/json; charset=utf-8",
 				dataType: 'json',
 				data: JSON.stringify(data),
 
 			};
+		// 	  $.ajax({
+        //     async: false,
+        //     type: "POST",
+        //     url: url,
+        //     data: JSON.stringify(data),
+        //     contentType: "application/json; charset=utf-8",
+        //     dataType: "json",
+        //     success: function (response) {
+		// 		debugger
+        //         expr(response.data, response);
+        //     }
+        // });
+    
 
-			$http(request).then(function (response) {
+			 $http(request).then(function (response) {
 
 				//response.data = JSON.parse(response.data);
+				debugger
 				expr(response.data, response);
 
 			}, function err(response) {

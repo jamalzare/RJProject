@@ -75,19 +75,26 @@ app.controller("SearchCtrl", ['$scope', 'serverInteract', function (scope, serve
 
 
 	var getStates = function () {
-		serverInteract.request('Home/GetStates', {}, function (data, response) {
+		serverInteract.request('GetStates', {}, function (data, response) {
+			debugger
 			scope.states = data;
 		});
+		debugger
+		var c=0;
+		debugger
+		
 	}
 
 	scope.getImages = function(st){
 		var id= st.oid;
-		serverInteract.request('Home/GetStateImages',id, function (data, response) {
+		serverInteract.request('/GetStateImages',id, function (data, response) {
 		debugger
 			st.imageList = data;
 		});
 	}
-
+debugger
+	getStates();
+	debugger
 	getStates();
 
 

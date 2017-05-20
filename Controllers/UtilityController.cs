@@ -24,14 +24,14 @@ namespace WebApplication
         [Route("api/bestdeals")]
         public JsonResult BestDeals()
         {
-            var trends = MockData.CompniesProducts;
+            var trends = MockData.getRandomList();
             return Json(trends);
         }
 
          [Route("api/todayDeals")]
         public JsonResult TodayDeals()
         {
-            var trends = MockData.CompniesProducts;
+            var trends = MockData.getRandomList();
             return Json(trends);
         }
 
@@ -39,14 +39,14 @@ namespace WebApplication
          [Route("api/search")]
         public JsonResult findProducts()
         {
-            var trends = MockData.CompniesProducts;
+            var trends = MockData.getRandomList();
             return Json(trends);
         }
 
         [Route("api/trendProducts")]
           public JsonResult getTrendProdcts()
         {
-            var products = MockData.CompniesProducts;
+            var products = MockData.getRandomList();
             return Json(products);
         }
 

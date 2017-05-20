@@ -45,16 +45,44 @@ namespace WebApplication
                 list.Add(new Products(1, "4C", 690, 645, "4C"));
                 list.Add(new Products(1, "giulietta", 165, 161, "giulietta"));
                 list.Add(new Products(1, "mito", 85, 80, "mito"));
+                list.Add(new Products(1, "BMW-428", 900, 40, "mito"));
+                list.Add(new Products(1, "BMW-520i", 85, 80, ""));
+                list.Add(new Products(1, "BMW-Z4", 55, 80, ""));
+                list.Add(new Products(1, "bmw335i", 885, 80, ""));
+                list.Add(new Products(1, "bmwz435i", 1005, 80, ""));
+                list.Add(new Products(1, "X3_1", 235, 80, ""));
+                //list.Add(new Products(1, "mito", 85, 80, ""));
+
+
 
                 foreach (var itm in list)
                 {
+                    itm.ImageUrl = itm.Name;
                     itm.ImageUrl = "http://localhost:5000/productsImages/" + itm.ImageUrl + ".jpg";
+                    itm.DetailUrl = "http://www.car.ir/Mazda/Mazda-3-1600";
+
+
                 }
 
                 return list;
             }
         }
 
+        public static List<Products> getRandomList()
+        {
+            var randomList = new List<Products>();
+            var list = MockData.CompniesProducts;
+
+            var count = list.Count;
+
+            for (int i = 0; i < count; i++)
+            {
+                var randomNum = (new Random()).Next(0, list.Count);
+                randomList.Add(list[randomNum]);
+                list.RemoveAt(randomNum);
+            }
+            return randomList;
+        }
         public static List<Trend> Trends
         {
             get
